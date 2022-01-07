@@ -1,12 +1,12 @@
-PKG := github.com/dictav/go-genproto-googleads
+PKG := github.com/scotthenley/go-genproto-googleads
 GOOGLE_PROTO := google.golang.org/genproto/googleapis/ads/googleads
 
-TARGETS := v7 v8
+TARGETS := v7 v8 v9
 SRC := googleapis/bazel-bin/google/ads/googleads/$(VERSION)/gapi-ads-googleads-$(VERSION)-go.tar.gz
 
 all: $(TARGETS)
 
-$(TARGETS): _googleapis
+$(TARGETS): 
 	-rm -rf build
 	make gen VERSION=$@
 
@@ -26,7 +26,7 @@ $(SRC): _googleapis
 	cd googleapis; bazel build //google/ads/googleads/$(VERSION):gapi-ads-googleads-$(VERSION)-go
 
 _googleapis:
-	git clone --depth=1 --branch googleads https://github.com/dictav/googleapis
+	git clone --depth=1 --branch googleads https://github.com/scotthenley/googleapis
 
 clean:
 	-rm -rf build
