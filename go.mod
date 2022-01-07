@@ -1,6 +1,6 @@
-module github.com/dictav/go-genproto-googleads
+module github.com/scotthenley/go-genproto-googleads
 
-go 1.16
+go 1.17
 
 require (
 	cloud.google.com/go v0.86.0
